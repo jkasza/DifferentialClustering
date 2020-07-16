@@ -7,6 +7,9 @@ source("DifferentialClusteringFunctions20200716.R", local=TRUE)
 
 ui <- fluidPage(
   
+  tags$head(includeScript("googleanalytics.js")),
+  
+  
   # Application title
   titlePanel("Sample size for partially or differentially clustered designs with baseline measurements on independent subjects or subjects nested in clusters"),
   
@@ -420,7 +423,7 @@ server <- function(input, output) {
                                     k1=input$k14, k0=input$k04, n0=input$n04, 
                                     m = input$m, P=input$P, 
                                     sig1clus=input$sig1clus4, sig0clus=input$sig0clus4,
-                                    sigbase=input$sig1ind4,  
+                                    sigbase=input$sigbase4,  
                                     rhobase=input$rhobase4 , rhoS = input$rhoS4,
                                     rho1=input$rho14, rho0=input$rho04
       ))
@@ -438,7 +441,7 @@ server <- function(input, output) {
       myvars= simplify2array(lapply(seq(input$n1min, input$n1max, 1), var_design5, 
                                     k1=input$k15, k0=input$k05, n0=input$n05, 
                                     sig1clus=input$sig1clus5, sig0clus=input$sig0clus5,
-                                    sigbase=input$sig1ind5,  
+                                    sigbase=input$sigbase5,  
                                     rhobase=input$rhobase5, rhoS = input$rhoS5,
                                     rho1=input$rho15, rho0=input$rho05
       ))
